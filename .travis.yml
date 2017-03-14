@@ -1,0 +1,21 @@
+before_install:
+  - echo "before install step"
+install:
+  - echo "install step"
+befor_script:
+  - echo "beforre_script step"
+script:
+  - echo "script step"
+before_cache:
+  - echo "before_cache step"
+after_success:
+  - echo "after_success step"
+after_failure:
+  - echo "after_failure step"
+before_deploy:
+  - echo "before_deploy step"
+deploy: []
+after_deploy:
+  - echo "after_deploy step"
+after_script:
+  - echo "after_script step"
