@@ -1,8 +1,11 @@
+language: ruby
+env:
+  - DEPLOY_TARGET_ENV=production
 before_install:
   - echo "before install step"
 install:
   - echo "install step"
-befor_script:
+before_script:
   - echo "beforre_script step"
 script:
   - echo "script step"
@@ -14,7 +17,17 @@ after_failure:
   - echo "after_failure step"
 before_deploy:
   - echo "before_deploy step"
-deploy: []
+deploy:
+  - provider: script
+    script: "deploy setp: provider1 $DEPLOY_TARGET_ENV"
+    on:
+      all_branches: true
+      condition: $DEPLOY_TARGET_ENV != ''
+  - provider: script
+    script: "deploy setp: provider2 $DEPLOY_TARGET_ENV"
+    on:
+      all_branches: true
+      condition: $DEPLOY_TARGET_ENV != ''
 after_deploy:
   - echo "after_deploy step"
 after_script:
