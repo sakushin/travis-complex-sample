@@ -19,12 +19,12 @@ before_deploy:
   - echo "before_deploy step"
 deploy:
   - provider: script
-    script: "echo deploy setp: provider1 $DEPLOY_TARGET_ENV"
+    script: "echo deploy step: provider1 failed && false"
     on:
       all_branches: true
       condition: $DEPLOY_TARGET_ENV != ''
   - provider: script
-    script: "echo deploy setp: provider2 $DEPLOY_TARGET_ENV"
+    script: "echo deploy setp: provider1 faild but dispatch provider2"
     on:
       all_branches: true
       condition: $DEPLOY_TARGET_ENV != ''
